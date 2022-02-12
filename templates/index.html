@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <!-- =====BOX ICONS===== -->
+    <!-- https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css -->
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+    
+      rel="stylesheet"
+    />
+    <!-- src="https://kit.fontawesome.com/516d47c674.js" -->
+    <script
+      src="{{ url_for('static', filename='js/516d47c674.js') }}"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Smart Disease Prediction</title>
+  </head>
+
+  <body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav__logo"><i class="fas fa-user-md"></i></a>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#Prediction" class="nav__link">Prediction</a>
+            </li>
+            <li class="nav__item">
+              <a href="#FAQ" class="nav__link">FAQ</a>
+            </li>
+            <li class="nav__item">
+              <a href="#Team" class="nav__link">Team</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="l-main">
+      <!--===== HOME =====-->
+      <section class="home bd-grid" id="home">
+        <div class="home__data">
+          <h1 class="home__title">
+            Smart<br /><span class="home__title-color">Disease Prediction</span
+            ><br />
+            <p class="slogan">Care for your health with a simple Self-Check</p>
+          </h1>
+
+          <a href="#Prediction" class="button">Get Start</a>
+        </div>
+
+        <div class="home__social"></div>
+
+        <div class="home__img">
+          <img src="{{ url_for('static', filename='img/diagnosis.png') }}" alt="" />
+        </div>
+      </section>
+
+      <!--===== ABOUT =====-->
+      <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+
+        <div class="about__container bd-grid">
+          <div class="about__img">
+            <i class="fas fa-laptop-medical"></i>
+          </div>
+
+          <div>
+            <h2 class="about__subtitle">About Us</h2>
+            <p class="about__text">
+              Smart Disease Prediction is on a mission to make quality
+              healthcare affordable and accessible for over a billion+ Indians.
+              We believe in empowering our users with the most accurate,
+              comprehensive, and curated information and care, enabling them to
+              make better healthcare decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--===== PREDICTION =====-->
+      <section class="work section" id="Prediction">
+        <h2 class="section-title">Prediction</h2>
+
+        <div class="work__container bd-grid">
+          <div class="work__img">
+            <p>
+              <img src="{{ url_for('static', filename='img/heart disease.png') }}" alt="" />
+              <a href="/heart"
+                ><button
+                  style="height: 40px; width: 320px;border:none"
+                  type="button"
+                  class="btn btn-dark link"
+                >
+                  Check Now
+                </button></a
+              >
+            </p>
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/Diabetes.png') }}" alt="" />
+            <a href="/diabetes">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/kidney disease.png') }}" alt="" />
+            <a href="/kidney">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/Liver.png') }}" alt="" />
+            <a href="/liver">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/cancer.png') }}" alt="" />
+            <a href="/cancer">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/Malaria Disease.png') }}" alt="" />
+            <a href="/malaria">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+        </div>
+      </section>
+      <!--===== FAQ =====-->
+      <section class="skills section" id="FAQ">
+        <h2 class="section-title">FAQ</h2>
+
+        <!-- faq question -->
+                <div class="layout">
+    <div class="accordion">
+      <div class="accordion__question">
+        <p>What is Smart Disease Prediction</p>
+  
+      </div>
+      <div class="accordion__answer">
+        <p>Description</p>
+      </div>
+    </div>
+    <div class="accordion">
+      <div class="accordion__question">
+        <p>How to take a self-Check?</p>
+  
+      </div>
+      <div class="accordion__answer">
+        <p>Click on the Check Now button & fill the require details. Click the Predict button. Find out your risk level with an in-depth report. Follow the advice for improving certain parts of your lifestyle and keep an eye out for the mentioned signs.</p>
+      </div>
+    </div>
+  
+    <div class="accordion">
+      <div class="accordion__question">
+        <p>Is Smart Disease Prediction is Secure?</p>
+      </div>
+      
+  
+      <div class="accordion__answer">
+        <p>
+          Definitely! Smart Disease Prediction Self-Checks are anonymous and reliable. None of your personal data is stored with us. The questions, answers, reports, advice, and signs are all verified by doctors. It’s free and secure for anyone to use.
+        </p>
+      </div>
+    </div>
+  </div>
+        </div>
+      </section>
+
+      <!--===== TEAM =====-->
+      <section class="contact section" id="Team">
+        <h2 class="section-title">Team</h2>
+
+        <div class="contact__container bd-grid">
+          <form action="" class="contact__form">
+            <input type="text" placeholder="Name" class="contact__input" />
+            <input type="mail" placeholder="Email" class="contact__input" />
+            <textarea
+              name=""
+              placeholder="Message"
+              id=""
+              cols="0"
+              rows="10"
+              class="contact__input"
+            ></textarea>
+            <input
+              type="button"
+              value="Submit"
+              class="contact__button button"
+            />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+      <p class="footer__title">Group 11</p>
+      <div class="footer__social">
+        <a
+          target="_blank"
+          class="footer__icon"
+          ><i class="bx bxl-facebook"></i
+        ></a>
+        <a
+          target="_blank"
+          class="footer__icon"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a
+          target="_blank"
+          class="footer__icon"
+          ><i class="bx bxl-twitter"></i
+        ></a>
+      </div>
+      <p></p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
