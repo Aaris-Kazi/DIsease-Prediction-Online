@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def can(img):
-    rfc = load('multispec_rfc15.pickle')
+    rfc = load('models/multispec_rfc15.pickle')
     img = cv.imread('upload/'+img)
     pimg = np.array(img).flatten()
     p = rfc.predict([pimg])
