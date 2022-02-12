@@ -64,13 +64,6 @@ def cancer_model():
         return redirect(url_for('cancer'))
     else:
         return render_template('cancer.html')
-        
-    
-
-@app.route('/assist')
-def assist():
-    print('hello world')
-    return render_template('assist.html')
 
 
 if __name__ == '__main__':
