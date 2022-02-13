@@ -17,7 +17,6 @@ def index():
 
 @app.route('/cancer')
 def cancer():
-        # return path
     return render_template('cancer.html')
 
 @app.route('/heart')
