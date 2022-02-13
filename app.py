@@ -5,9 +5,6 @@ from werkzeug.utils import secure_filename
 import os
 from cancer_model import can
 
-
-
-
 ALLOWED_EXTENSIONS = set(['tif', 'png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
