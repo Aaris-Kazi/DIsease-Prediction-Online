@@ -56,7 +56,7 @@ def cancer_model():
                 # print(file.filename)
                 value = can(file.filename)
                 print(value)
-                return redirect(request.url)
+                return render_template('cancer.html', messages = value)
             
         return redirect(url_for('cancer'))
     else:

@@ -12,5 +12,10 @@
     <input class="form-control" type="file" name="imagefile" id="imagefile" accept="tif, png, jpeg">
     <input class="btn btn-primary mt-3" type="submit" value="Predict Images">
 </form>
+<div class="p-3 text-center">
+    {% if messages %}
+        <span>{{ messages }}</span>
+    {% endif %}
+</div>
 </body>
 </html>
