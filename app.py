@@ -1,9 +1,11 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from tomlkit import value
 from werkzeug.utils import secure_filename
 import os
 from cancer_model import can
+from pneumonia_model import pneumo
 
 ALLOWED_EXTENSIONS = set(['tif', 'png', 'jpg', 'jpeg'])
 
@@ -64,6 +66,29 @@ def cancer_model():
         return redirect(url_for('cancer'))
     else:
         return render_template('cancer.html')
+
+@app.route('/pneumonia_model', methods = ['POST', 'GET'])
+def pneumonia_model():
+    if request.method == 'POST':
+        if request.files:
+            file = request.files["imagefile"]
+            # print(file)
+            if file.filename == '':
+                print('no file selected')
+                flash('No selected file')
+                return redirect(request.url)
+            else:
+                full_name = os.path.join('upload', file.filename)
+                file.save(full_name)
+                # print(file.filename)
+                # value = pneu(file.filename)
+                value = pneumo(full_name)
+                print(value)
+                return render_template('pneumonia.html', messages = value)
+            
+        return redirect(url_for('pneumonia'))
+    else:
+        return render_template('pneumonia.html')
 
 
 if __name__ == '__main__':
