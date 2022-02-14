@@ -12,7 +12,7 @@ def can(img):
         x = 'Positive'
     else:
         x = 'Negative'
+    # plt.imshow(img)
+    # v = plt.show()
     return x
 # plt.title(x)
-# plt.imshow(img)
-# plt.show()

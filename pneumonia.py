@@ -18,10 +18,12 @@ def pretrained_path_to_tensor(img_path):
     return preprocess_input(x)
 
 def pneu(img):
-    output = pretrained_path_to_tensor('upload/IM-0001-0001.jpeg')
+    output = pretrained_path_to_tensor(img)
     output = model(output)
     output = np.array(output)
     if np.argmax(output) == 1:
         print('The sample is positive')
     else:
         print('The sample is negative')
+        
+pneu('upload/IM-0001-0001.jpeg')
