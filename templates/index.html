@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css') }}" />
 
     <!-- =====BOX ICONS===== -->
-    <!-- https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css -->
     <link
-      href="{{ url_for('static', filename='css/style.css') }}"
-    
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <!-- src="https://kit.fontawesome.com/516d47c674.js" -->
     <script
       src="{{ url_for('static', filename='js/516d47c674.js') }}"
       crossorigin="anonymous"
@@ -27,7 +24,7 @@
     <header class="l-header">
       <nav class="nav bd-grid">
         <div>
-          <a href="#" class="nav__logo"><i class="fas fa-user-md"></i></a>
+          <a href="/" class="nav__logo"><i class="fas fa-user-md"></i></a>
         </div>
 
         <div class="nav__menu" id="nav-menu">
@@ -49,6 +46,7 @@
             </li>
           </ul>
         </div>
+
         <div class="nav__toggle" id="nav-toggle">
           <i class="bx bx-menu"></i>
         </div>
@@ -167,6 +165,18 @@
           <div class="work__img">
             <img src="{{ url_for('static', filename='img/Malaria Disease.png') }}" alt="" />
             <a href="/malaria">
+              <button
+                style="height: 40px; width: 320px;border:none"
+                type="button"
+                class="btn btn-dark link"
+              >
+                Check Now
+              </button></a
+            >
+          </div>
+          <div class="work__img">
+            <img src="{{ url_for('static', filename='img/pneumonia.png') }}" alt="" />
+            <a href="/pneumonia">
               <button
                 style="height: 40px; width: 320px;border:none"
                 type="button"

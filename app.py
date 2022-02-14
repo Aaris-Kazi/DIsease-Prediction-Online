@@ -39,6 +39,10 @@ def liver():
 def mala():
     return render_template('malaria.html')
 
+@app.route('/pneumonia')
+def pneu():
+    return render_template('pneumonia.html')
+
 @app.route('/cancer_model', methods = ['POST', 'GET'])
 def cancer_model():
     if request.method == 'POST':
