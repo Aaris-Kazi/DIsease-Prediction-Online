@@ -8,9 +8,14 @@
 
 <h1>Malaria Prediction<h1>
 <h5>Please upload the image of the cell</h5>
-<form class="p-3 text-center" action='/',methods="post" enctype="">
-    <input class="form-control" type="file" name="imagefile">
+<form class="p-3 text-center" action="/malaria_model" method="post" enctype="multipart/form-data" >
+    <input class="form-control" type="file" name="imagefile" id="imagefile">
     <input class="btn btn-primary mt-3" type="submit" value="Predict Images">
 </form>
+<div class="p-3 text-center">
+    {% if messages %}
+        <span>{{ messages }}</span>
+    {% endif %}
+</div>
 </body>
 </html>

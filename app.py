@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import os
 from cancer_model import can
 from pneumonia_model import pneumo
+from malaria import malar
 
 ALLOWED_EXTENSIONS = set(['tif', 'png', 'jpg', 'jpeg'])
 
@@ -81,7 +82,6 @@ def pneumonia_model():
                 full_name = os.path.join('upload', file.filename)
                 file.save(full_name)
                 # print(file.filename)
-                # value = pneu(file.filename)
                 value = pneumo(full_name)
                 print(value)
                 return render_template('pneumonia.html', messages = value)
@@ -89,6 +89,29 @@ def pneumonia_model():
         return redirect(url_for('pneumonia'))
     else:
         return render_template('pneumonia.html')
+
+@app.route('/malaria_model', methods = ['POST', 'GET'])
+def malaria_model():
+    if request.method == 'POST':
+        if request.files:
+            file = request.files["imagefile"]
+            # print(file)
+            if file.filename == '':
+                print('no file selected')
+                flash('No selected file')
+                return redirect(request.url)
+            else:
+                full_name = os.path.join('upload', file.filename)
+                file.save(full_name)
+                # print(file.filename)
+                # value = mala(full_name)
+                value = malar(full_name)
+                print(value)
+                return render_template('malaria.html', messages = value)
+            
+        return redirect(url_for('malaria'))
+    else:
+        return render_template('malaria.html')
 
 
 if __name__ == '__main__':
