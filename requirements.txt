@@ -4,10 +4,9 @@ itsdangerous==2.0.1
 jedi==0.18.0
 Jinja2==3.0.1
 MarkupSafe==2.0.1
-SQLAlchemy==1.4.25
 Werkzeug==2.0.1
 numpy==1.22.2
 joblib==1.0.1
 scikit-learn==1.0
-keras==2.7.0
+tensorflow==2.7.0
 opencv-python==4.5.3.56
