@@ -1,11 +1,12 @@
 from joblib import load
-import cv2 as cv
-import numpy as np
+from cv2 import imread
+# import numpy as np
+from numpy import array
 
 def can(img):
     rfc = load('models/multispec_rfc15.pickle')
-    img = cv.imread('upload/'+img)
-    pimg = np.array(img).flatten()
+    img = imread('upload/'+img)
+    pimg = array(img).flatten()
     p = rfc.predict([pimg])
     if p[0] == '1':
         x = 'Positive'
