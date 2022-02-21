@@ -1,6 +1,6 @@
 from joblib import load
-from cv2 import imread
-# import numpy as np
+# from cv2 import imread
+from skimage.io import imread
 from numpy import array
 
 def can(img):
