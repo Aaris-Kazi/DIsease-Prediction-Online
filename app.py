@@ -58,7 +58,7 @@ def cancer_model():
                 full_name = os.path.join('upload', file.filename)
                 file.save(full_name)
                 # print(file.filename)
-                value = can(file.filename)
+                value = can(full_name)
                 print(value)
                 return render_template('cancer.html', messages = value)
             

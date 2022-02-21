@@ -5,7 +5,7 @@ from numpy import array
 
 def can(img):
     rfc = load('models/multispec_rfc15.pickle')
-    img = imread('upload/'+img)
+    img = imread(img)
     pimg = array(img).flatten()
     p = rfc.predict([pimg])
     if p[0] == '1':
