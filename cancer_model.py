@@ -15,4 +15,3 @@ def can(img):
     # plt.imshow(img)
     # v = plt.show()
     return x
-# plt.title(x)
