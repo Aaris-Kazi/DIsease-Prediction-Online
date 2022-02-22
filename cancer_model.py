@@ -4,7 +4,7 @@ from skimage.io import imread
 from numpy import array
 
 def can(img):
-    rfc = load('models/multispec_rfc15.pickle')
+    rfc = load('models/multispec_rfc15.pkl')
     img = imread(img)
     pimg = array(img).flatten()
     p = rfc.predict([pimg])

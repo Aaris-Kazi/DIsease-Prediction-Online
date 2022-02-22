@@ -3,8 +3,10 @@ from datetime import datetime
 from werkzeug.utils import secure_filename
 import os
 from cancer_model import can
+from heart import ValuePredictor
 from pneumonia_model import pneumo
 from malaria import malar
+
 
 ALLOWED_EXTENSIONS = set(['tif', 'png', 'jpg', 'jpeg'])
 
@@ -110,6 +112,24 @@ def malaria_model():
         return redirect(url_for('malaria'))
     else:
         return render_template('malaria.html')
+    
+
+
+
+@app.route('/heart_model', methods=["POST"])
+def heart_model():
+    if request.method == "POST":
+        to_predict_list = request.form.to_dict()
+        to_predict_list = list(to_predict_list.values())
+        to_predict_list = list(map(float, to_predict_list))
+        # diabetes
+        if(len(to_predict_list) == 7):
+            result = ValuePredictor(to_predict_list, 7)
+
+    if(int(result) == 1):
+        return render_template('heart.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
+    else:
+        return render_template('heart.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
 
 
 if __name__ == '__main__':

@@ -37,10 +37,17 @@
       <div id="intro" class="container-fluid view ">
         <h1 class="text-center text-capitalize pt-5">Know your chances of getting a heart disease in one Click!</h1>
         <hr class="w-75 mx-auto pt-5">
+        {% if prediction_text %}
+          {% if prediction_text == "No need to fear. You have no dangerous symptoms of the disease"%}
+            <h2 class="text-success">{{ prediction_text }}</h2>
+          {% else %}
+            <h2 class="text-danger">{{ prediction_text }}</h2>
+          {% endif %}
+        {% endif %}
         <div class="row mb-5">
           <div class="col-lg-6 col-md-6 col-12">
             
-            <form action="" method="post">
+            <form action="/heart_model" method="post">
               <div class="form-group">
                 <label for="cp">Chest Pain Type</label>
                 <select class="form-control" id="cp" name = "cp" required="required" placeholder="Chest Pain Type">
