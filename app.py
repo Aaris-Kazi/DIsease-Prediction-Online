@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-from datetime import datetime
 from werkzeug.utils import secure_filename
-import os
+from os import path
 from cancer_model import can
 from heart import ValuePredictor
 from pneumonia_model import pneumo
@@ -57,7 +56,7 @@ def cancer_model():
                 flash('No selected file')
                 return redirect(request.url)
             else:
-                full_name = os.path.join('upload', file.filename)
+                full_name = path.join('upload', file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 value = can(full_name)
@@ -79,7 +78,7 @@ def pneumonia_model():
                 flash('No selected file')
                 return redirect(request.url)
             else:
-                full_name = os.path.join('upload', file.filename)
+                full_name = path.join('upload', file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 value = pneumo(full_name)
@@ -101,7 +100,7 @@ def malaria_model():
                 flash('No selected file')
                 return redirect(request.url)
             else:
-                full_name = os.path.join('upload', file.filename)
+                full_name = path.join('upload', file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 # value = mala(full_name)
