@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, flash, send_file
 from werkzeug.utils import secure_filename, send_from_directory
 from os import path
 from cancer_model import can
@@ -136,6 +136,12 @@ def heart_model():
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
     return send_from_directory(directory='upload', filename=filename)
+
+@app.route('/test-images', methods=['GET', 'POST'])
+def test_images():
+    path = 'upload/upload.zip'
+    
+    return send_file(path, as_attachment=True)
 
 
 if __name__ == '__main__':
