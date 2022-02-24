@@ -1,6 +1,5 @@
 from joblib import load
 from cv2 import imread
-# from skimage.io import imread
 from numpy import array
 
 def can(img):
@@ -12,6 +11,4 @@ def can(img):
         x = 'Positive'
     else:
         x = 'Negative'
-    # plt.imshow(img)
-    # v = plt.show()
     return x
