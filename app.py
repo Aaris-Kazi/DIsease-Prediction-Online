@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename, send_from_directory
 from os import path
 from cancer_model import can
 from heart import ValuePredictor
@@ -57,6 +57,7 @@ def cancer_model():
                 return redirect(request.url)
             else:
                 full_name = path.join('upload', file.filename)
+                secure_filename(file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 value = can(full_name)
@@ -79,6 +80,7 @@ def pneumonia_model():
                 return redirect(request.url)
             else:
                 full_name = path.join('upload', file.filename)
+                secure_filename(file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 value = pneumo(full_name)
@@ -101,6 +103,7 @@ def malaria_model():
                 return redirect(request.url)
             else:
                 full_name = path.join('upload', file.filename)
+                secure_filename(file.filename)
                 file.save(full_name)
                 # print(file.filename)
                 # value = mala(full_name)
@@ -129,6 +132,10 @@ def heart_model():
         return render_template('heart.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
     else:
         return render_template('heart.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+
+@app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
+def download(filename):
+    return send_from_directory(directory='upload', filename=filename)
 
 
 if __name__ == '__main__':
