@@ -1,6 +1,5 @@
 from numpy import array, expand_dims, argmax
 from keras.applications.mobilenet import preprocess_input
-# import matplotlib.pyplot as plt
 from keras.preprocessing import image
 from keras.models import load_model
 
