@@ -1,8 +1,8 @@
-from flask import Flask, render_template, url_for, request, redirect, flash, send_file
+from flask import Flask, render_template, url_for, request, redirect, flash, send_file, jsonify
 from werkzeug.utils import secure_filename, send_from_directory
 from os import path
 from cancer_model import can
-from heart import ValuePredictor
+from form_data import ValuePredictor
 from pneumonia_model import pneumo
 from malaria import malar
 
@@ -114,24 +114,20 @@ def malaria_model():
         return redirect(url_for('malaria'))
     else:
         return render_template('malaria.html')
-    
 
-
-
-@app.route('/heart_model', methods=["POST"])
-def heart_model():
+@app.route('/pred_model', methods=["POST"])
+def pred_model():
     if request.method == "POST":
         to_predict_list = request.form.to_dict()
         to_predict_list = list(to_predict_list.values())
         to_predict_list = list(map(float, to_predict_list))
-        # diabetes
-        if(len(to_predict_list) == 7):
-            result = ValuePredictor(to_predict_list, 7)
-
-    if(int(result) == 1):
-        return render_template('heart.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
-    else:
-        return render_template('heart.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+        result = ValuePredictor(to_predict_list, len(to_predict_list))
+        if (len(to_predict_list) == 7):
+            if(int(result) == 1):
+                return render_template('heart.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
+            else:
+                return render_template('heart.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+    return redirect(request.url)
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
@@ -140,10 +136,12 @@ def download(filename):
 @app.route('/test-images', methods=['GET', 'POST'])
 def test_images():
     path = 'upload/upload.zip'
-    
     return send_file(path, as_attachment=True)
 
+@app.route("/get_my_ip", methods=["GET"])
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}),
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # app.run(host='0.0.0.0', debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
