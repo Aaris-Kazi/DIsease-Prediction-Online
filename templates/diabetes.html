@@ -47,9 +47,16 @@
           Know your chances of getting diabetes in one Click!
         </h1>
         <hr class="w-75 mx-auto pt-5" />
+        {% if prediction_text %}
+          {% if prediction_text == "No need to fear. You have no dangerous symptoms of the disease"%}
+            <h2 class="text-success">{{ prediction_text }}</h2>
+          {% else %}
+            <h2 class="text-danger">{{ prediction_text }}</h2>
+          {% endif %}
+        {% endif %}
         <div class="row mb-5">
           <div class="col-lg-6 col-md-6 col-12">
-            <form action=" method="post">
+            <form action="/pred_model" method="post">
               <div class="form-group">
                 <!-- TODO : Year to accept only year date picker -->
                 <label for="Pregnancies">No. of Pregnencies</label>
@@ -83,6 +90,28 @@
                   name="BloodPressure"
                   required="required"
                   placeholder="Current Blood Pressure"
+                />
+              </div>
+              <div class="form-group">
+                <label for="SkinThickness">Current Skin Thickness</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="SkinThickness"
+                  name="SkinThickness"
+                  required="required"
+                  placeholder="Current Skin Thickness"
+                />
+              </div>
+              <div class="form-group">
+                <label for="Insulin">Insulin </label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="Insulin"
+                  name="Insulin"
+                  required="required"
+                  placeholder="Current Insulin level"
                 />
               </div>
               <div class="form-group">

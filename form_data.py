@@ -9,7 +9,7 @@ def ValuePredictor(to_predict_list, size):
         loaded_model = load(r'models/heart_model.pkl')
         result = loaded_model.predict(to_predict)
         return result[0]
-    elif(size==6):#Diabetes
+    elif(size==8):#Diabetes
         loaded_model = load(r'models/diabetes.pkl')
         result = loaded_model.predict(to_predict)
         return result[0]
