@@ -127,6 +127,11 @@ def pred_model():
                 return render_template('heart.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
             else:
                 return render_template('heart.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+        elif(len(to_predict_list)==8):
+            if(int(result) == 1):
+                return render_template('diabetes.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
+            else:
+                return render_template('diabetes.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
     return redirect(request.url)
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
@@ -140,7 +145,8 @@ def test_images():
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    return jsonify({'ip': request.remote_addr}),
+    # print(request.remote_addr)
+    return jsonify({'ip': request.remote_addr}), 200
 
 if __name__ == '__main__':
     # app.run(debug=True)
