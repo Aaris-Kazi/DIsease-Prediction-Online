@@ -7,7 +7,7 @@ MarkupSafe==2.0.1
 Werkzeug==2.0.1
 numpy>=1.14.6
 Pillow==8.3.2 
-joblib>=0.11
 tensorflow-cpu==2.5.0
 scikit-learn==1.0.2
 scikit-image==0.19.2
+joblib>=0.11
