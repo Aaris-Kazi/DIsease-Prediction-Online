@@ -29,10 +29,6 @@ def heart():
 def diabetes():
     return render_template('diabetes.html')
 
-@app.route('/kidney')
-def kidney():
-    return render_template('kidney.html')
-
 @app.route('/liver')
 def liver():
     return render_template('liver.html')
