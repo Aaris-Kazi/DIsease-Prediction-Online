@@ -12,7 +12,6 @@ ALLOWED_EXTENSIONS = set(['tif', 'png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.config['upload'] = 'upload'
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-# @app.route('/', methods = ['POST', 'GET'])
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -46,7 +45,6 @@ def cancer_model():
     if request.method == 'POST':
         if request.files:
             file = request.files["imagefile"]
-            # print(file)
             if file.filename == '':
                 print('no file selected')
                 flash('No selected file')
@@ -55,7 +53,6 @@ def cancer_model():
                 full_name = path.join('upload', file.filename)
                 secure_filename(file.filename)
                 file.save(full_name)
-                # print(file.filename)
                 value = can(full_name)
                 print(value)
                 return render_template('cancer.html', messages = value)
@@ -69,7 +66,6 @@ def pneumonia_model():
     if request.method == 'POST':
         if request.files:
             file = request.files["imagefile"]
-            # print(file)
             if file.filename == '':
                 print('no file selected')
                 flash('No selected file')
@@ -78,7 +74,6 @@ def pneumonia_model():
                 full_name = path.join('upload', file.filename)
                 secure_filename(file.filename)
                 file.save(full_name)
-                # print(file.filename)
                 value = pneumo(full_name)
                 print(value)
                 return render_template('pneumonia.html', messages = value)
@@ -92,7 +87,6 @@ def malaria_model():
     if request.method == 'POST':
         if request.files:
             file = request.files["imagefile"]
-            # print(file)
             if file.filename == '':
                 print('no file selected')
                 flash('No selected file')
@@ -101,8 +95,6 @@ def malaria_model():
                 full_name = path.join('upload', file.filename)
                 secure_filename(file.filename)
                 file.save(full_name)
-                # print(file.filename)
-                # value = mala(full_name)
                 value = malar(full_name)
                 print(value)
                 return render_template('malaria.html', messages = value)
@@ -141,7 +133,6 @@ def test_images():
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    # print(request.remote_addr)
     return jsonify({'ip': request.remote_addr}), 200
 
 if __name__ == '__main__':
