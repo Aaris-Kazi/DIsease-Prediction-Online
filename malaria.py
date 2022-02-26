@@ -3,9 +3,8 @@ from keras.applications.mobilenet import preprocess_input
 from keras.preprocessing import image
 from keras.models import load_model
 
-model = load_model("models/malaria_cnn.h5")
-
 def malar(img):
+    model = load_model("models/malaria_cnn.h5")
     img = image.load_img(img, target_size=(50, 50))
     x = image.img_to_array(img)
     x = expand_dims(x, axis=0)
