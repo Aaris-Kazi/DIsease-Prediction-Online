@@ -5,6 +5,7 @@ jedi==0.18.0
 Jinja2==3.0.1
 MarkupSafe==2.0.1
 Werkzeug==2.0.1
-numpy>=1.14.6 
+numpy>=1.14.6
+Pillow==8.3.2 
 joblib>=0.11
 tensorflow-cpu==2.5.0
