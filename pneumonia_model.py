@@ -4,7 +4,7 @@ from keras.preprocessing import image
 from keras.models import load_model
 
 def pneumo(img):
-    model = load_model("models/xray_model_final.h5")
+    model = load_model(r"models/xray_model_final.h5")
     img = image.load_img(img, target_size=(224, 224))
     x = image.img_to_array(img)
     x = expand_dims(x, axis=0)
