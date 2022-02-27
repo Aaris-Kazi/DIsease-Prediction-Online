@@ -48,6 +48,13 @@
           Know your chances of getting a liver disease in one Click!
         </h1>
         <hr class="w-75 mx-auto pt-5" />
+        {% if prediction_text %}
+          {% if prediction_text == "No need to fear. You have no dangerous symptoms of the disease"%}
+            <h2 class="text-success">{{ prediction_text }}</h2>
+          {% else %}
+            <h2 class="text-danger">{{ prediction_text }}</h2>
+          {% endif %}
+        {% endif %}
         <div class="row mb-5">
           <div class="col-lg-6 col-md-6 col-12">
             <form action="/liver_model" method="post">
@@ -109,6 +116,19 @@
                   name="Alamine_Aminotransferase"
                   required="required"
                   placeholder="Enter the Alamine Aminotransferase"
+                />
+              </div>
+              <div class="form-group">
+                <label for="Aspartate_Aminotransferase"
+                  >Aspartate Aminotransferase</label
+                >
+                <input
+                  class="form-control"
+                  type="number"
+                  id="Aspartate_Aminotransferase"
+                  name="Aspartate_Aminotransferase"
+                  required="required"
+                  placeholder="Enter the Aspartate Aminotransferase"
                 />
               </div>
               <div class="form-group">

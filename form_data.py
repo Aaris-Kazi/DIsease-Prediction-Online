@@ -17,7 +17,11 @@ def ValuePredictor(to_predict_list, size):
     #     loaded_model = load(r'models/kidney')
     #     result = loaded_model.predict(to_predict)
     #     return result[0]
-    # elif(size==10):#liver
-    #     loaded_model = load(r'models/liver')
-    #     result = loaded_model.predict(to_predict)
-    #     return result[0]
+    
+def ValuePredictor1(to_predict_list, size):
+    result = []
+    print(size)
+    to_predict = array(to_predict_list).reshape(1, size)
+    loaded_model = load(r'models/liver_log.pkl')
+    result = loaded_model.predict(to_predict)
+    return result[0]

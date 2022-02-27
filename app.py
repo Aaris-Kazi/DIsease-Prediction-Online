@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash, sen
 from werkzeug.utils import secure_filename, send_from_directory
 from os import path
 from cancer_model import can
-from form_data import ValuePredictor
+from form_data import ValuePredictor, ValuePredictor1
 from pneumonia_model import pneumo
 from malaria import malar
 
@@ -109,6 +109,7 @@ def pred_model():
         to_predict_list = request.form.to_dict()
         to_predict_list = list(to_predict_list.values())
         to_predict_list = list(map(float, to_predict_list))
+        # print("data",to_predict_list)
         result = ValuePredictor(to_predict_list, len(to_predict_list))
         if (len(to_predict_list) == 7):
             if(int(result) == 1):
@@ -120,6 +121,25 @@ def pred_model():
                 return render_template('diabetes.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
             else:
                 return render_template('diabetes.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+        elif (len(to_predict_list) == 9):
+            if(int(result) == 1):
+                return render_template('liver.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
+            else:
+                return render_template('liver.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
+    return redirect(request.url)
+
+@app.route('/liver_model', methods=["POST"])
+def liver_model():
+    if request.method == "POST":
+        to_predict_list = request.form.to_dict()
+        to_predict_list = list(to_predict_list.values())
+        result = ValuePredictor1(to_predict_list, len(to_predict_list))
+        print(int(result))
+        if (len(to_predict_list) == 9):
+            if(int(result) == 1):
+                return render_template('liver.html', prediction_text="Sorry your chances of getting the disease. Please consult the doctor immediately")
+            else:
+                return render_template('liver.html', prediction_text="No need to fear. You have no dangerous symptoms of the disease")
     return redirect(request.url)
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
