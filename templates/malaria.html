@@ -22,8 +22,10 @@
     <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>  Home</a>
 </form>
 <div class="p-3 text-center">
-    {% if messages %}
-        <span>{{ messages }}</span>
+    {% if messages == 'The sample is positive' %}
+        <h2 class="text-danger">{{ messages }}</h2>
+    {% else %}
+        <h2 class="text-success">{{ messages }}</h2>
     {% endif %}
 </div>
 <script>

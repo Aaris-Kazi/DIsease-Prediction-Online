@@ -24,8 +24,10 @@
 </form>
 
 <div class="p-3 text-center">
-    {% if messages %}
-        <span>{{ messages }}</span>
+    {% if messages == 'Positive' %}
+        <h2 class="text-danger">{{ messages }}</h2>
+    {% else %}
+        <h2 class="text-success">{{ messages }}</h2>
     {% endif %}
 </div>
 

@@ -50,7 +50,31 @@
         <hr class="w-75 mx-auto pt-5" />
         <div class="row mb-5">
           <div class="col-lg-6 col-md-6 col-12">
-            <form action="" method="post">
+            <form action="/pred_model" method="post">
+              <div class="form-group">
+                <!-- TODO : Year to accept only year date picker -->
+                <label for="Age">Age</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="Age"
+                  name="Age"
+                  required="required"
+                  placeholder="Enter the Age"
+                />
+              </div>
+              <div class="form-group">
+                <!-- TODO : Year to accept only year date picker -->
+                <label for="Gender">Gender</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="Gender"
+                  name="Gender"
+                  required="required"
+                  placeholder="Enter the Gender"
+                />
+              </div>
               <div class="form-group">
                 <!-- TODO : Year to accept only year date picker -->
                 <label for="Total Bilirubin">Total Bilirubin</label>
