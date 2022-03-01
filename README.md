@@ -7,3 +7,4 @@ To build from the repository, execute the following commands first:
 
     git clone https://github.com/Aaris-Kazi/DIsease-Prediction-Online.git
     cd DIsease-Prediction-Online
+    flask run
