@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cancer Prediction</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <style>
         h1 {text-align: center;}
         h5 {text-align: center;}
 
     </style>
+    <title>Cancer Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>    
 <body>
 
-<h1>Cancer Prediction<h1>
+<h1 class="text-primary">Cancer Prediction<h1>
 <h5>Please upload the image of the cell</h5>
 <form class="p-3 text-center" action='/cancer_model' method="post" enctype="multipart/form-data">
-    <input class="form-control" type="file" name="imagefile" id="imagefile" accept="tif, png, jpeg" onchange="getImagePreview(event)">
+    <input class="form-control" type="file" name="imagefile" id="imagefile" onchange="getImagePreview(event)">
     <p></p>
     <div id="preview"></div>
-
-    <input class="btn btn-primary mt-3" type="submit" value="Predict Images">
+    <input class="btn btn-primary mt-3" type="submit" value="Predict">
     <p></p>
     <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i> Home</a>
 </form>
-
 <div class="p-3 text-center">
     {% if messages == 'Positive' %}
         <h2 class="text-danger">{{ messages }}</h2>
@@ -30,8 +34,6 @@
         <h2 class="text-success">{{ messages }}</h2>
     {% endif %}
 </div>
-
-
 <script>
     function getImagePreview(event)
     {
