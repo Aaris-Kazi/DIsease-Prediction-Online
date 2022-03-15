@@ -4,38 +4,37 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{ url_for('static', filename='img/health.ico') }}">
-    <!-- Bootstrap CSS -->
+    <link rel="icon" href="{{ url_for('static', filename='img/health.ico') }}">    <!-- Bootstrap CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-      *{
-      margin:auto;
-      padding:0;
-      font-family: 'Josefin Sans', sans-serif;
-      }
-      h1 {text-align: center;}
-      h2 {text-align: center;}
-      html,
-      body,
-      header,
-      #intro {
-      height: 100%;
-      }
-      img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      }
-      </style>
-  
+    *{
+    margin:auto;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    }
+    h1 {text-align: center;}
+    h2 {text-align: center;}
+    html,
+    body,
+    header,
+    #intro {
+    height: 100%;
+    }
+    img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+    </style>
     <title>Heart disease Prediction</title>
   </head>
   <body>
     <header>
       <!--Mask-->
       <div id="intro" class="container-fluid view ">
-        <h1 class="text-center text-capitalize pt-5">Know your chances of getting a heart disease in one Click!</h1>
+        <h1 class="text-primary">Heart Disease Prediction</h1>
+        <h2>Know your chances of getting a heart disease in one Click!</h2>
         <hr class="w-75 mx-auto pt-5">
         {% if prediction_text %}
           {% if prediction_text == "No need to fear. You have no dangerous symptoms of the disease"%}
@@ -45,8 +44,11 @@
           {% endif %}
         {% endif %}
         <div class="row mb-5">
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-lg-6 col-md-6 col-12 my-auto">
+            <img src="{{ url_for('static', filename='img/Cover Photo/heart disease.jpg') }}" class="float-left">
             
+          </div>
+          <div class="col-lg-6 col-md-6 col-12">
             <form action="/pred_model" method="post">
               <div class="form-group">
                 <label for="cp">Chest Pain Type</label>
@@ -88,7 +90,7 @@
               
               <div class="form-group">
                 <label for="thalach">Maximum Heart Rate Achieved</label>
-                <input class="form-control" id="thalach" name = "thalach" required="required" >
+                <input class="form-control" type="number" id="thalach" name = "thalach" required="required" >
               </div>
 
               <div class="form-group">
@@ -107,7 +109,7 @@
       </div>
       <!--/.Mask-->
     </header>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://kit.fontawesome.com/516d47c674.js" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
