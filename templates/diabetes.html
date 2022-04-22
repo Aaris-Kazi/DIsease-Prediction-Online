@@ -32,12 +32,16 @@
       header,
       #intro {
         height: 100%;
+        padding: 1% 3% 0%;
       }
       img {
         display: block;
         max-width: 100%;
         height: auto;
       }
+      .heart-block {
+      padding-top: 2%;
+    }
     </style>
     <title>Diabetes Prediction</title>
   </head>
@@ -46,10 +50,8 @@
       <!--Mask-->
       <div id="intro" class="container-fluid view">
         <h1 class="text-primary">Diabetes Prediction</h1>
-        <h2>
-          Know your chances of getting diabetes in one Click!
-        </h2>
-        <hr class="w-75 mx-auto pt-5" />
+        <hr class="w-75 mx-auto" />
+        <div class="pred-result">
         {% if prediction_text %}
           {% if prediction_text == "No need to fear. You have no dangerous symptoms of the disease"%}
             <h2 class="text-success">{{ prediction_text }}</h2>
@@ -57,7 +59,8 @@
             <h2 class="text-danger">{{ prediction_text }}</h2>
           {% endif %}
         {% endif %}
-        <div class="row mb-5">
+      </div>
+        <div class="row mb-5 heart-block">
           <div class="col-lg-6 col-md-6 col-12 my-auto">
             <img src="{{ url_for('static', filename='img//Cover Photo/diabetes.jpg') }}" class="float-left">
             
@@ -88,7 +91,7 @@
                   placeholder="Glucose Level"
                 />
               </div>
-
+              
               <div class="form-group">
                 <label for="BloodPressure">Current Blood Pressure</label>
                 <input

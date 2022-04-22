@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css') }}" />
-
     <!-- =====BOX ICONS===== -->
     <link
       href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
@@ -264,8 +263,8 @@
               <img src="{{ url_for('static', filename='img/Talha.png') }}" class="profile-img">
       
               <h3 class="user-name">Talha Fakih</h3>
-              <h7>Frontend Developer</h7>
-              <p>Model Integrate Testing</p>
+              <h7>Backend Developer</h7>
+              <p>Model Integrate Testing<br>Diabetes Model Development and<br>Feedback using Twilio</p>
             </div>
           </div>
         </div>
@@ -277,7 +276,7 @@
         <h2 class="section-title">Contact Us</h2>
 
         <div class="contact__container bd-grid">
-          <form id="contact-form" name="contact-form" action="https://formsubmit.co/18co32@aiktc.ac.in" method="POST" />
+          <form id="contact-form" name="contact-form" action="/home" method="POST">
 
             <div class="row">
                 <div class="col-md-6">
@@ -309,13 +308,12 @@
                     </div>
                 </div>
             </div>
+            <div class="submit-button">
+              <button class="button2" type="submit">Send</button>
+          </div>
         </form>
 
-        <div class="text-center text-md-left">
-            <a class="button2" onclick="document.getElementById('contact-form').submit();">Send</a>
-        </div>
-        <div class="status"></div>
-        </div>
+        
       </section>
     </main>
 
