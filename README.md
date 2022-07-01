@@ -1,5 +1,7 @@
 ﻿<img src = "https://github.com/Aaris-Kazi/DIsease-Prediction-Online/blob/main/preview_doc/logo.gif" height =190px width=190px>
  
+ <img src = "https://flask.palletsprojects.com/en/2.1.x/_images/flask-logo.png" height = 15% width = 15%><img src ="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" width = 15% height=15%><img src="https://avatars.githubusercontent.com/u/15658638?s=200&v=4" width = 15% height=15%>
+ 
  # DIsease-Prediction-Online
  ### What is Disease Preiction? This app will help you to analyze your disease symptoms and give you correct prediction by using Machine Learning on web 
  
